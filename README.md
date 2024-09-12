@@ -55,25 +55,3 @@ This repository contains an e-commerce web app built with Python and Flask. User
 We welcome contributions to improve the e-commerce-store site. If you have suggestions for new features or improvements, please feel free to submit a pull request or open an issue. Alternatively, please contact Lidao Betema at rodrigue.betema@gmail.com
 
 ## Project Structure
-e-commerce_store/
-├── app.py
-├── static/
-│   ├── css/
-│   │   └── style.css
-│   ├── js/
-│   │   └── script.js
-│   ├── img/
-│   │   └── script.js
-│   │   └── script.js
-│   │   └── script.js
-├── templates/
-│   ├── layout.html
-│   ├── index.html
-│   ├── products.html
-│   ├── products_details.html
-│   ├── cart.html
-│   ├── checkout.html
-│   ├── about.html
-│   └── contact.html
-├── README.md
-├── requirements.txt
