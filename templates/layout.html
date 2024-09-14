@@ -21,11 +21,44 @@
                     <a href="{{ url_for('cart_page') }}">Cart</a>
                     <a href="{{ url_for('about') }}">About</a>
                     <a href="{{ url_for('contact') }}">Contact</a>
+
+                    <form action="{{ url_for('search') }}" method="GET" class="search-form">
+                        <input type="text" name="query" placeholder="Search products..." class="search-input">
+                        <button type="submit" class="search-button">Search</button>
+                    </form>
                 </nav>
             </div>
         </header>
         <div class="main">
-            {% block content %}{% endblock %}
+            <div class="items">
+                {% block content %}{% endblock %}
+            </div>
+
+            {# Show cart-preview on Home and Products pages, always #}
+            {% if request.endpoint == 'index' or request.endpoint == 'view_products' %}
+            <div id="cart-preview">
+                <h3>Cart Preview</h3>
+                {% if cart_items %}
+                    {% for item in cart_items %}
+                        <p>{{ item.name }} : €{{ item.price }} <a href="{{ url_for('remove_from_cart', product_id=item.id, next=request.url) }}">Remove</a></p>
+                    {% endfor %}
+                    <p><strong>Total: €{{ total }}</strong></p>
+                    <a class="checkout-button" href="{{ url_for('checkout') }}">Proceed to Checkout</a>
+                {% else %}
+                    <p>Your cart is empty.</p>
+                {% endif %}
+            </div>
+
+            {# Show cart-preview on Search page only if cart is not empty #}
+            {% elif request.endpoint == 'search' and cart_items %}
+            <div id="cart-preview">
+                <h3>Cart Preview</h3>
+                {% for item in cart_items %}
+                    <p>{{ item.name }} : €{{ item.price }} <a href="{{ url_for('remove_from_cart', product_id=item.id, next=request.url) }}">Remove</a></p>
+                {% endfor %}
+                <p><strong>Total: €{{ total }}</strong></p>
+            </div>
+            {% endif %}
         </div>
     </div>
     <footer>

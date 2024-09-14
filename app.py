@@ -39,12 +39,46 @@ def index():
     cart_items = session['cart']
     return render_template('index.html', products=products, cart_items=cart_items, total=total)
 
+@app.route('/products')
+def view_products():
+    initialize_cart()
+    total = sum(item['price'] for item in session['cart'])
+    total = "{:.2f}".format(total)
+    cart_items = session['cart']
+    return render_template('products.html', products=products, cart_items=cart_items, total=total)
+
+@app.route('/product/<int:product_id>')
+def view_product_details(product_id):
+    initialize_cart()
+    product = next((p for p in products if p['id'] == product_id), None)
+    if product is None:
+        return redirect(url_for('index'))
+    total = sum(item['price'] for item in session['cart'])
+    total = "{:.2f}".format(total)
+    cart_items = session['cart']
+    return render_template('product_details.html', product=product, cart_items=cart_items, total=total)
+
 @app.route('/cart')
 def cart_page():
     initialize_cart()
     total = sum(item['price'] for item in session['cart'])
     total = "{:.2f}".format(total)
     return render_template('cart.html', cart=session['cart'], total=total)
+
+@app.route('/search')
+def search():
+    query = request.args.get('query', '')
+    if query:
+        search_results = [product for product in products if query.lower() in product['name'].lower() or query.lower() in product['description'].lower()]
+    else:
+        search_results = []
+
+    initialize_cart()
+    total = sum(item['price'] for item in session['cart'])
+    total = "{:.2f}".format(total)
+    cart_items = session['cart']
+
+    return render_template('search_results.html', products=search_results, query=query, cart_items=cart_items, total=total)
 
 @app.route('/contact')
 def contact():
