@@ -3,6 +3,64 @@
 {% block title %}About Us{% endblock %}
 
 {% block content %}
-    <h1>About Us</h1>
-    <p>Welcome to our e-commerce store! We offer the best products at the best prices.</p>
+    <div class="about-container">
+        <h1 class="about-title">About Us</h1>
+
+        <section class="about-section">
+            <p>
+                At CARTNEST Store, we believe that shopping should be <strong>convenient</strong>, <strong>affordable</strong>, and <strong>enjoyable</strong>.
+                That’s why we offer the <strong>best products at the best prices</strong> — tailored to suit your needs.
+            </p>
+            <p>
+                Whether you’re looking for the latest tech gadgets, stylish home décor, or everyday essentials, we’ve got you covered.
+                Our diverse range of carefully curated products ensures that there’s something for everyone.
+            </p>
+        </section>
+
+        <section class="about-section">
+            <h2>Why Shop With Us?</h2>
+            <ul class="about-list">
+                <li><strong>Quality You Can Trust:</strong> We partner with top brands and trusted suppliers to guarantee the highest quality in every product.</li>
+                <li><strong>Best Prices:</strong> We work hard to offer competitive pricing, ensuring that you get the most value for your money.</li>
+                <li><strong>Customer Satisfaction:</strong> Your shopping experience matters to us. Our dedicated customer support team is always ready to help with any questions or concerns.</li>
+                <li><strong>Fast & Reliable Shipping:</strong> We understand the excitement of receiving your orders quickly. That’s why we offer fast and reliable shipping to your doorstep.</li>
+            </ul>
+        </section>
+
+        <section class="about-section">
+            <h2>Our Mission</h2>
+            <p>
+                Our mission is simple: to make online shopping <strong>seamless</strong> and <strong>affordable</strong> for everyone.
+                We aim to create a shopping environment that combines convenience with unbeatable prices, without compromising on quality.
+                We’re committed to continuously expanding our product range to meet your evolving needs.
+            </p>
+        </section>
+
+        <section class="about-section">
+            <h2>Our Promise to You</h2>
+            <ul class="about-list">
+                <li><strong>Safe and Secure Shopping:</strong> Your privacy and data security are our top priority.</li>
+                <li><strong>No-Hassle Returns:</strong> Changed your mind? No problem! We offer an easy return process for your peace of mind.</li>
+                <li><strong>Exclusive Offers:</strong> Be the first to know about exclusive deals and special promotions.</li>
+            </ul>
+        </section>
+
+        <section class="about-section">
+            <h2>Join Our Community</h2>
+            <p>
+                We’re more than just a store — we’re a community of savvy shoppers who enjoy great deals and quality products.
+                Stay connected with us through our newsletter and follow us on social media to keep up with the latest trends, special offers, and giveaways.
+            </p>
+        </section>
+
+        <section class="about-section">
+            <h2>Start Shopping Today!</h2>
+            <p>
+                Explore our collections, discover new favorites, and enjoy a seamless shopping experience with us.
+                We’re here to <a href="{{ url_for('contact') }}" class="about-link">help</a> make your life easier, one great product at a time.
+            </p>
+        </section>
+
+        <p class="about-thanks">Thank you for choosing us. We can’t wait to serve you!</p>
+    </div>
 {% endblock %}

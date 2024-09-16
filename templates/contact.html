@@ -3,8 +3,41 @@
 {% block title %}Contact Us{% endblock %}
 
 {% block content %}
-    <h1>Contact Us</h1>
-    <p>If you have any questions or inquiries, feel free to contact us at <strong>support@ecommerce.com</strong>.</p>
-    <p>Address: 123 E-Commerce St, Online City</p>
-    <p>Phone: +353 85 755 5555</p>
+    <div class="contact-container">
+        <h1 class="contact-title">Get in Touch</h1>
+        <p class="contact-intro">We'd love to hear from you! Whether you have a question about our products, need assistance, or just want to offer feedback, feel free to contact us.</p>
+
+        <div class="contact-info">
+            <p><strong>Email:</strong> <a href="mailto:support@ecommerce.com" class="contact-link">support@ecommerce.com</a></p>
+            <p><strong>Address:</strong> 123 E-Commerce St, Online City</p>
+            <p><strong>Phone:</strong> +353 85 555 5555</p>
+            <br>
+        </div>
+
+        <div class="contact-form-section">
+            <h2>Contact Us Directly</h2>
+            <p>Please, fill out the form below and we'll get back to you as soon as possible.</p>
+            <br>
+            <form action="{{ url_for('contact') }}" method="POST" class="contact-form">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" required class="form-input" placeholder="Enter your name">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Your Email</label>
+                    <input type="email" id="email" name="email" required class="form-input" placeholder="Enter your email">
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Your Message</label>
+                    <textarea id="message" name="message" rows="6" required class="form-textarea" placeholder="Write your message"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="submit-button">Send Message</button>
+                </div>
+            </form>
+        </div>
+    </div>
 {% endblock %}
