@@ -1,0 +1,68 @@
+{% extends 'layout.html' %}
+
+{% block title %}Cart{% endblock %}
+
+{% block content %}
+    <div class="cart-container">
+        <h1>Your Cart</h1>
+        {% if cart %}
+            <div class="cart-items">
+                {% for item in cart %}
+                <div class="cart-item">
+                    <p class="item-name">{{ item.name }}</p>
+                    <p class="item-price">€{{ "%.2f" | format(item.price) }}</p>
+                    <p class="item-quantity">Quantity: {{ item.quantity }}</p>
+                    <a class="remove-link" href="{{ url_for('decrease_quantity', product_id=item.id, next=request.url) }}">Remove</a>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="cart-total">
+                <p><strong>Total: €{{ total }}</strong></p>
+            </div>
+            <button class="checkout-button" id="checkout-button">Proceed to Checkout</button>
+        {% else %}
+            <p>Your cart is empty.</p>
+        {% endif %}
+    </div>
+
+    <!-- Payment Modal -->
+    <div id="payment-modal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h2>Payment Details</h2>
+            <form id="payment-form">
+                <div class="modal-form-group">
+                    <label for="full-name">Full Name</label>
+                    <input type="text" id="full-name" name="full-name" required>
+                </div>
+                <div class="modal-form-group">
+                    <label for="card-number">Card Number</label>
+                    <input type="text" id="card-number" name="card-number" required>
+                </div>
+                <div class="modal-form-group">
+                    <label for="expiration-date">Expiration Date</label>
+                    <input type="text" id="expiration-date" name="expiration-date" placeholder="MM/YY" required>
+                </div>
+                <div class="modal-form-group">
+                    <label for="cvv">CVV</label>
+                    <input type="text" id="cvv" name="cvv" required>
+                </div>
+                <div class="modal-form-group">
+                    <label for="amount">Amount</label>
+                    <input type="text" id="amount" name="amount" value="€{{ total }}" readonly>
+                </div>
+                <div class="modal-form-group">
+                    <input type="checkbox" id="save-card" name="save-card" class="modal-checkbox">
+                    <label for="save-card">Save this card</label>
+                </div>
+                <button type="submit" class="modal-submit-button">Pay Now</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Notification Div -->
+    <div class="notification"></div>
+
+    <!-- Link to External JS -->
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+{% endblock %}

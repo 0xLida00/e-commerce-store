@@ -52,9 +52,13 @@
                 <div id="cart-preview">
                     <h3>Cart Preview</h3>
                     {% if cart_items %}
-                        {% for item in cart_items %}
-                            <p>{{ item.name }} : €{{ item.price }} <a href="{{ url_for('remove_from_cart', product_id=item.id, next=request.url) }}">Remove</a></p>
-                        {% endfor %}
+                        <ul>
+                            {% for item in cart_items %}
+                                <li>{{ item.name }} - €{{ "%.2f" | format(item.price) }} x {{ item.quantity }}
+                                    <a class="remove-link" href="{{ url_for('decrease_quantity', product_id=item.id, next=request.url) }}">Remove</a>
+                                </li>
+                            {% endfor %}
+                        </ul>
                         <p><strong>Total: €{{ total }}</strong></p>
                         <a href="{{ url_for('cart_page') }}" class="checkout-button">Proceed to Checkout</a>
                     {% else %}
@@ -66,9 +70,13 @@
                 {% elif request.endpoint == 'search' and cart_items %}
                 <div id="cart-preview">
                     <h3>Cart Preview</h3>
-                    {% for item in cart_items %}
-                        <p>{{ item.name }} : €{{ item.price }} <a href="{{ url_for('remove_from_cart', product_id=item.id, next=request.url) }}">Remove</a></p>
-                    {% endfor %}
+                    <ul>
+                        {% for item in cart_items %}
+                            <li>{{ item.name }} - €{{ "%.2f" | format(item.price) }} x {{ item.quantity }}
+                                <a class="remove-link" href="{{ url_for('decrease_quantity', product_id=item.id, next=request.url) }}">Remove</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
                     <p><strong>Total: €{{ total }}</strong></p>
                 </div>
                 {% endif %}
@@ -78,8 +86,6 @@
     <footer>
         <p>&copy; 2024 E-Commerce Store</p>
     </footer>
-
-    <div class="notification"></div>
 
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>

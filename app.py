@@ -1,4 +1,4 @@
-from flask import Flask, flash, render_template, redirect, url_for, session, request
+from flask import Flask, flash, render_template, redirect, url_for, session, request, jsonify
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '9f2c687aaef44d3eebfc8e58a13a99df'
@@ -34,7 +34,7 @@ def initialize_cart():
 @app.route('/')
 def index():
     initialize_cart()
-    total = sum(item['price'] for item in session['cart'])
+    total = sum(item['price'] * item['quantity'] for item in session['cart'])
     total = "{:.2f}".format(total)
     cart_items = session['cart']
     return render_template('index.html', products=products, cart_items=cart_items, total=total)
@@ -42,7 +42,7 @@ def index():
 @app.route('/products')
 def view_products():
     initialize_cart()
-    total = sum(item['price'] for item in session['cart'])
+    total = sum(item['price'] * item['quantity'] for item in session['cart'])
     total = "{:.2f}".format(total)
     cart_items = session['cart']
     return render_template('products.html', products=products, cart_items=cart_items, total=total)
@@ -53,7 +53,7 @@ def view_product_details(product_id):
     product = next((p for p in products if p['id'] == product_id), None)
     if product is None:
         return redirect(url_for('index'))
-    total = sum(item['price'] for item in session['cart'])
+    total = sum(item['price'] * item['quantity'] for item in session['cart'])
     total = "{:.2f}".format(total)
     cart_items = session['cart']
     return render_template('product_details.html', product=product, cart_items=cart_items, total=total)
@@ -61,9 +61,61 @@ def view_product_details(product_id):
 @app.route('/cart')
 def cart_page():
     initialize_cart()
-    total = sum(item['price'] for item in session['cart'])
+    total = sum(item['price'] * item['quantity'] for item in session['cart'])
     total = "{:.2f}".format(total)
     return render_template('cart.html', cart=session['cart'], total=total)
+
+@app.route('/add_to_cart/<int:product_id>')
+def add_to_cart(product_id):
+    initialize_cart()
+    product = next((p for p in products if p['id'] == product_id), None)
+    if product:
+        # Check if product is already in the cart
+        for item in session['cart']:
+            if item['id'] == product_id:
+                # Add 'quantity' key if it's not present
+                if 'quantity' not in item:
+                    item['quantity'] = 1
+                # Increase quantity if product is already in the cart
+                item['quantity'] += 1
+                session.modified = True
+                flash('Product quantity increased.', 'success')
+                break
+        else:
+            # Add product to cart if it's not already in the cart
+            product['quantity'] = 1
+            session['cart'].append(product)
+            session.modified = True
+            flash('Product added to cart.', 'success')
+
+    next_page = request.args.get('next')
+    if next_page:
+        return redirect(next_page)
+    return redirect(url_for('index'))
+
+@app.route('/decrease_quantity/<int:product_id>')
+def decrease_quantity(product_id):
+    initialize_cart()
+    for item in session['cart']:
+        if item['id'] == product_id:
+            if item['quantity'] > 1:
+                # Decrease quantity if more than one is in the cart
+                item['quantity'] -= 1
+                session.modified = True
+                break
+            else:
+                # Remove product completely if quantity is 1
+                session['cart'].remove(item)
+                session.modified = True
+                break
+    next_page = request.args.get('next')
+    return redirect(next_page or url_for('cart_page'))
+
+@app.route('/clear_cart', methods=['POST'])
+def clear_cart():
+    session['cart'] = []  # Clear the cart
+    session.modified = True
+    return jsonify({"success": True})  # Return a success response
 
 @app.route('/search')
 def search():
@@ -74,7 +126,7 @@ def search():
         search_results = []
 
     initialize_cart()
-    total = sum(item['price'] for item in session['cart'])
+    total = sum(item['price'] * item['quantity'] for item in session['cart'])
     total = "{:.2f}".format(total)
     cart_items = session['cart']
 
@@ -82,6 +134,18 @@ def search():
 
 @app.route('/contact')
 def contact():
+    return render_template('contact.html')
+
+@app.route('/contact', methods=['GET', 'POST'])
+def contact_submit():
+    if request.method == 'POST':
+        name = request.form['name']
+        email = request.form['email']
+        message = request.form['message']
+        
+        flash('Thank you for reaching out! We will get back to you soon.', 'success')
+        return redirect(url_for('contact'))
+    
     return render_template('contact.html')
 
 @app.route('/about')
