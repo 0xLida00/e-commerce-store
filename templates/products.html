@@ -6,13 +6,20 @@
     <div class="product-list">
         {% for product in products %}
         <div class="product-item">
-            <img src="{{ product.image_url }}" alt="{{ product.name }}">
-            <h2>{{ product.name }}</h2>
+            <a href="#" class="product-image" data-image="{{ product.image_url }}">
+                <img src="{{ product.image_url }}" alt="{{ product.name }}">
+            </a>
+            <h1>{{ product.name }}</h1>
             <p>{{ product.description }}</p>
-            <p>€{{ product.price }}</p>
+            <h2>€{{ product.price }}</h2>
             <a href="{{ url_for('view_product_details', product_id=product.id) }}" class="button">View Details</a>
             <a href="{{ url_for('add_to_cart', product_id=product.id, next=request.url) }}" class="button">Add to Cart</a>
         </div>
         {% endfor %}
+    </div>
+
+    <div id="image-modal" class="image-modal">
+        <span class="modal-close">&times;</span>
+        <img class="img-modal-content" id="modal-img">
     </div>
 {% endblock %}
