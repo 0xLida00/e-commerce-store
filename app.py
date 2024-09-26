@@ -5,7 +5,7 @@ app.config['SECRET_KEY'] = '9f2c687aaef44d3eebfc8e58a13a99df'
 
 products = [
     {'id': 1, 'name': 'LuxeComfort Cushion', 'description': 'Cozy, textured cushion with vibrant colors shown on a stylish sofa', 'price': 29.99, 'image_url': '/static/img/cushion.png'},
-    {'id': 2, 'name': 'UltraGrip Yoga Mat', 'description': 'Textured yoga mat with vivid color shownrolled out in a peaceful yoga studio', 'price': 49.99, 'image_url': '/static/img/yoga_mat.png'},
+    {'id': 2, 'name': 'UltraGrip Yoga Mat', 'description': 'Textured yoga mat with vivid color shown rolled out in a peaceful yoga studio', 'price': 49.99, 'image_url': '/static/img/yoga_mat.png'},
     {'id': 3, 'name': 'Eco-Friendly Bottle', 'description': 'Reusable water with earthy bottle with a bamboo lid', 'price': 19.99, 'image_url': '/static/img/water_bottle.png'},
     {'id': 4, 'name': 'Wireless Charging Pad', 'description': 'A modern white wireless charger in white shown sitting on a neat desk', 'price': 25.99, 'image_url': '/static/img/wireless_charger.png'},
     {'id': 5, 'name': 'Noise-Canceling Earbuds', 'description': 'Compact earbuds with a futuristic design shown resting in their charging case', 'price': 34.99, 'image_url': '/static/img/earbuds.png'},
@@ -70,15 +70,19 @@ def add_to_cart(product_id):
     initialize_cart()
     product = next((p for p in products if p['id'] == product_id), None)
     if product:
+        # Check if product is already in the cart
         for item in session['cart']:
             if item['id'] == product_id:
+                # Add 'quantity' key if it's not present
                 if 'quantity' not in item:
                     item['quantity'] = 1
+                # Increase quantity if product is already in the cart
                 item['quantity'] += 1
                 session.modified = True
                 flash('Product quantity increased.', 'success')
                 break
         else:
+            # Add product to cart if it's not already in the cart
             product['quantity'] = 1
             session['cart'].append(product)
             session.modified = True
@@ -95,10 +99,12 @@ def decrease_quantity(product_id):
     for item in session['cart']:
         if item['id'] == product_id:
             if item['quantity'] > 1:
+                # Decrease quantity if more than one is in the cart
                 item['quantity'] -= 1
                 session.modified = True
                 break
             else:
+                # Remove product completely if quantity is 1
                 session['cart'].remove(item)
                 session.modified = True
                 break
@@ -107,9 +113,9 @@ def decrease_quantity(product_id):
 
 @app.route('/clear_cart', methods=['POST'])
 def clear_cart():
-    session['cart'] = []
+    session['cart'] = []  # Clear the cart
     session.modified = True
-    return jsonify({"success": True})
+    return jsonify({"success": True})  # Return a success response
 
 @app.route('/process_payment', methods=['POST'])
 def process_payment():
@@ -122,6 +128,10 @@ def process_payment():
     cvv = data.get('cvv')
     amount = data.get('amount')
 
+    # You can add payment validation and processing here.
+    # For now, we assume the payment is successful.
+
+    # Clear the cart after payment
     session['cart'] = []
     session.modified = True
     

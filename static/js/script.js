@@ -13,10 +13,12 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
+    // Close the image modal when clicking the close button
     closeImageModal.onclick = function () {
         imageModal.style.display = 'none';
     };
 
+    // Close the image modal when clicking outside of the image
     window.onclick = function (event) {
         if (event.target === imageModal) {
             imageModal.style.display = 'none';

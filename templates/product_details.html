@@ -3,14 +3,16 @@
 {% block title %}{{ product.name }} Details{% endblock %}
 
 {% block content %}
-    <div class="product-details">
-        <a href="#" class="product-image" data-image="{{ product.image_url }}">
-            <img src="{{ product.image_url }}" alt="{{ product.name }}">
-        </a>
-        <h1>{{ product.name }}</h1>
-        <p>{{ product.description }}</p>
-        <h2>Price: €{{ product.price }}</h2>
-        <a href="{{ url_for('add_to_cart', product_id=product.id) }}" class="button">Add to Cart</a>
+    <div class="center-container">
+        <div class="product-details">
+            <a href="#" class="product-image" data-image="{{ product.image_url }}">
+                <img src="{{ product.image_url }}" alt="{{ product.name }}">
+            </a>
+            <h1>{{ product.name }}</h1>
+            <p>{{ product.description }}</p>
+            <h2>Price: €{{ product.price }}</h2>
+            <a href="{{ url_for('add_to_cart', product_id=product.id) }}" class="button">Add to Cart</a>
+        </div>
     </div>
     <div id="image-modal" class="image-modal">
         <span class="modal-close">&times;</span>

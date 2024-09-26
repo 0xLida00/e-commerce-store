@@ -54,8 +54,8 @@
                     {% if cart_items %}
                         <ul>
                             {% for item in cart_items %}
-                                <li>{{ item.name }} - €{{ "%.2f" | format(item.price) }} x {{ item.quantity }}
-                                    <a class="remove-link" href="{{ url_for('decrease_quantity', product_id=item.id, next=request.url) }}">Remove</a>
+                                <li>{{ item.name }}: €{{ "%.2f" | format(item.price) }} x {{ item.quantity }}
+                                    <a class="remove-link" href="{{ url_for('decrease_quantity', product_id=item.id, next=request.url) }}">X</a>
                                 </li>
                             {% endfor %}
                         </ul>
@@ -72,8 +72,8 @@
                     <h3>Cart Preview</h3>
                     <ul>
                         {% for item in cart_items %}
-                            <li>{{ item.name }} - €{{ "%.2f" | format(item.price) }} x {{ item.quantity }}
-                                <a class="remove-link" href="{{ url_for('decrease_quantity', product_id=item.id, next=request.url) }}">Remove</a>
+                            <li>{{ item.name }}: €{{ "%.2f" | format(item.price) }} x {{ item.quantity }}
+                                <a class="remove-link" href="{{ url_for('decrease_quantity', product_id=item.id, next=request.url) }}">X</a>
                             </li>
                         {% endfor %}
                     </ul>

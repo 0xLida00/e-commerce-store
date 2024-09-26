@@ -1,5 +1,6 @@
-# e-commerce-store
-This repository contains an e-commerce web app built with Python and Flask. Users can browse products, add items to their cart, and checkout. Features include live cart updates, product detail pages, and cart management, demonstrating Flask routing, sessions, and Jinja2 templates.
+# E-Commerce Store
+
+This is a simple e-commerce store built using Flask, HTML, CSS, and JavaScript.
 
 ## Installation
 1. Clone the repository.
@@ -10,8 +11,7 @@ This repository contains an e-commerce web app built with Python and Flask. User
 - Browse products
 - View product details
 - Add products to cart (basic functionality)
-- Remove product from the cart
-- About Us and Contact Us pages
+- About and Contact pages
 
 ## Prerequisites
 - Python 3.7 or higher
@@ -19,8 +19,8 @@ This repository contains an e-commerce web app built with Python and Flask. User
 
 ## Installation Steps
 1. **Clone the Repository**:
-    git clone https://github.com/0xLida00/e-commerce-store
-    cd e-commerce-store
+    git clone https://github.com/0xLida00/ecommerce_store.git
+    cd ecommerce_store
 
 2. **Create a Virtual Environment**:
     python3 -m venv venv
@@ -39,7 +39,7 @@ This repository contains an e-commerce web app built with Python and Flask. User
 	•	Visit the homepage to browse products.
 	•	Click on a product to view its details.
 	•	Add products to the cart and view the cart contents.
-	•	Explore the About us and Contact Us pages for more information about the store.
+	•	Explore the About and Contact pages for more information about the store.
 
 ## Customization
 	•	Products: You can modify the products by editing the products list in app.py.
@@ -52,6 +52,31 @@ This repository contains an e-commerce web app built with Python and Flask. User
     Gunicorn
 
 ## Contributing
-We welcome contributions to improve the e-commerce-store site. If you have suggestions for new features or improvements, please feel free to submit a pull request or open an issue. Alternatively, please contact Lidao Betema at rodrigue.betema@gmail.com
+We welcome contributions to improve the Interactive Quiz App. If you have suggestions for new features or improvements, please feel free to submit a pull request or open an issue.
+Alternatively, please contact Lidao Betema at rodrigue.betema@gmail.com
 
 ## Project Structure
+```plaintext
+ecommerce_store/
+├── app.py
+├── static/
+│   ├── css/
+│   │   └── style.css
+│   ├── js/
+│   │   └── script.js
+│   ├── img/
+│   │   ├── background.jpg
+│   │   ├── favicon.ico
+│   │   └── storelogo.png
+├── templates/
+│   ├── layout.html
+│   ├── index.html
+│   ├── products.html
+│   ├── products_details.html
+│   ├── search_results.html
+│   ├── cart.html
+│   ├── checkout.html
+│   ├── about.html
+│   └── contact.html
+├── README.md
+├── requirements.txt
