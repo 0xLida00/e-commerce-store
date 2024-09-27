@@ -33,6 +33,7 @@ def initialize_cart():
 
 @app.route('/')
 def index():
+    '''Renders the homepage, initializes the cart, and calculates total cart value.'''
     initialize_cart()
     total = sum(item['price'] * item['quantity'] for item in session['cart'])
     total = "{:.2f}".format(total)
@@ -41,6 +42,7 @@ def index():
 
 @app.route('/products')
 def view_products():
+    '''Displays the product listing page, initializes the cart, and calculates total cart value.'''
     initialize_cart()
     total = sum(item['price'] * item['quantity'] for item in session['cart'])
     total = "{:.2f}".format(total)
@@ -49,6 +51,7 @@ def view_products():
 
 @app.route('/product/<int:product_id>')
 def view_product_details(product_id):
+    '''Shows details for a specific product, initializes the cart, and checks if the product exists.'''
     initialize_cart()
     product = next((p for p in products if p['id'] == product_id), None)
     if product is None:
@@ -60,6 +63,7 @@ def view_product_details(product_id):
 
 @app.route('/cart')
 def cart_page():
+    '''Displays the cart page with the current items and total cart value.'''
     initialize_cart()
     total = sum(item['price'] * item['quantity'] for item in session['cart'])
     total = "{:.2f}".format(total)
@@ -67,6 +71,7 @@ def cart_page():
 
 @app.route('/add_to_cart/<int:product_id>')
 def add_to_cart(product_id):
+    '''Adds a product to the cart or increases its quantity if it's already in the cart.'''
     initialize_cart()
     product = next((p for p in products if p['id'] == product_id), None)
     if product:
@@ -95,6 +100,7 @@ def add_to_cart(product_id):
 
 @app.route('/decrease_quantity/<int:product_id>')
 def decrease_quantity(product_id):
+    '''Reduces the quantity of a product in the cart or removes it if the quantity is 1.'''
     initialize_cart()
     for item in session['cart']:
         if item['id'] == product_id:
@@ -113,12 +119,14 @@ def decrease_quantity(product_id):
 
 @app.route('/clear_cart', methods=['POST'])
 def clear_cart():
-    session['cart'] = []  # Clear the cart
+    '''Clears all products from the cart and sends a success response.'''
+    session['cart'] = []
     session.modified = True
-    return jsonify({"success": True})  # Return a success response
+    return jsonify({"success": True})
 
 @app.route('/process_payment', methods=['POST'])
 def process_payment():
+    '''Processes payment, validates input, and clears the cart upon successful payment.'''
     data = request.get_json()
     
     # Mock payment processing logic
@@ -128,10 +136,8 @@ def process_payment():
     cvv = data.get('cvv')
     amount = data.get('amount')
 
-    # You can add payment validation and processing here.
     # For now, we assume the payment is successful.
 
-    # Clear the cart after payment
     session['cart'] = []
     session.modified = True
     
@@ -139,6 +145,7 @@ def process_payment():
 
 @app.route('/remove_from_cart/<int:product_id>')
 def remove_from_cart(product_id):
+    '''Removes a specific product from the cart based on its product ID.'''
     initialize_cart()
     session['cart'] = [item for item in session['cart'] if item['id'] != product_id]
     session.modified = True
@@ -147,6 +154,7 @@ def remove_from_cart(product_id):
 
 @app.route('/search')
 def search():
+    '''Searches for products by name or description and displays the result.'''
     query = request.args.get('query', '')
     if query:
         search_results = [product for product in products if query.lower() in product['name'].lower() or query.lower() in product['description'].lower()]
@@ -162,6 +170,7 @@ def search():
 
 @app.route('/checkout')
 def checkout():
+    '''Clears the cart and displays a checkout confirmation message.'''
     initialize_cart()
     session['cart'] = []
     session.modified = True
@@ -169,10 +178,12 @@ def checkout():
 
 @app.route('/contact', methods=['GET'])
 def contact():
+    '''Displays the contact page with a contact form.'''
     return render_template('contact.html')
 
 @app.route('/contact', methods=['GET', 'POST'])
 def contact_submit():
+    '''Handles contact form submission and displays a success message.'''
     if request.method == 'POST':
         name = request.form['name']
         email = request.form['email']
@@ -185,6 +196,7 @@ def contact_submit():
 
 @app.route('/about')
 def about():
+    '''Displays the About page with company information.'''
     return render_template('about.html')
 
 if __name__ == '__main__':
