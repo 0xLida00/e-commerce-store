@@ -65,20 +65,6 @@
                         <p>Your cart is empty.</p>
                     {% endif %}
                 </div>
-
-                {# Show cart-preview on Search page only if cart is not empty #}
-                {% elif request.endpoint == 'search' and cart_items %}
-                <div id="cart-preview">
-                    <h3>Cart Preview</h3>
-                    <ul>
-                        {% for item in cart_items %}
-                            <li>{{ item.name }}: €{{ "%.2f" | format(item.price) }} x {{ item.quantity }}
-                                <a class="remove-link" href="{{ url_for('decrease_quantity', product_id=item.id, next=request.url) }}">X</a>
-                            </li>
-                        {% endfor %}
-                    </ul>
-                    <p><strong>Total: €{{ total }}</strong></p>
-                </div>
                 {% endif %}
             </div>
         </div>

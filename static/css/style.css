@@ -1017,7 +1017,6 @@ footer {
     .contact-container, .about-container {
         width: 90%;
         margin: 10px;
-        position: relative;
         padding: 15px;
     }
 

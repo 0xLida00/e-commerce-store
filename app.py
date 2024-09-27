@@ -12,7 +12,7 @@ products = [
     {'id': 6, 'name': 'Adjustable Laptop Stand', 'description': 'A modern, aluminum laptop stand shown holding an open laptop', 'price': 59.99, 'image_url': '/static/img/laptop_stand.png'},
     {'id': 7, 'name': 'Multi-Function Blender', 'description': 'A powerful blender shown in a kitchen setting, blending a colorful smoothie', 'price': 39.99, 'image_url': '/static/img/blender.png'},
     {'id': 8, 'name': 'Noise-Canceling Headset', 'description': 'A high-end over-ear headset shown on an office table', 'price': 49.99, 'image_url': '/static/img/headset.png'},
-    {'id': 9, 'name': 'Bluetooth Smartwatch', 'description': 'A sleek smartwatch shown on a wrist, with the screen showing fitness stats', 'price': 29.99, 'image_url': '/static/img/smartwatch.png'},
+    {'id': 9, 'name': 'Bluetooth Smartwatch', 'description': 'A sleek smartwatch shown on a table, with the screen showing fitness stats', 'price': 29.99, 'image_url': '/static/img/smartwatch.png'},
     {'id': 10, 'name': 'HD Camera Drone', 'description': 'A sleek drone shown flying high over a scenic landscape with HD Camera in focus', 'price': 19.99, 'image_url': '/static/img/drone.png'},
     {'id': 11, 'name': 'Adjustable Dumbbells', 'description': 'Adjustable dumbbells shown in a home gym setting', 'price': 59.99, 'image_url': '/static/img/adjustable_dumbbells.png'},
     {'id': 12, 'name': 'Digital Picture Frame', 'description': 'A digital picture frame shown displaying an image in a cozy living room', 'price': 24.99, 'image_url': '/static/img/digital_picture_frame.png'},
@@ -32,6 +32,8 @@ def initialize_cart():
         session['cart'] = []
 
 @app.route('/')
+@app.route('/index')
+@app.route('/home')
 def index():
     '''Renders the homepage, initializes the cart, and calculates total cart value.'''
     initialize_cart()

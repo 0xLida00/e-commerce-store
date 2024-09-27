@@ -68,6 +68,27 @@ ecommerce_store/
 │   │   ├── background.jpg
 │   │   ├── favicon.ico
 │   │   └── storelogo.png
+│   │   └── cushion.png
+│   │   └── yoga_mat.png
+│   │   └── water_bottle.png
+│   │   └── wireless_charger.png
+│   │   └── earbuds.png
+│   │   └── laptop_stand.png
+│   │   └── blender.png
+│   │   └── headset.png
+│   │   └── smartwatch.png
+│   │   └── drone.png
+│   │   └── adjustable_dumbbells.png
+│   │   └── digital_picture_frame.png
+│   │   └── air_purifier.png
+│   │   └── doorbell.png
+│   │   └── vacuum_cleaner.png
+│   │   └── thermostat.png
+│   │   └── gaming_console.png
+│   │   └── kettle.png
+│   │   └── gaming_mouse.png
+│   │   └── desk_chair.png
+│   │   └── speaker.png
 ├── templates/
 │   ├── layout.html
 │   ├── index.html
