@@ -4,27 +4,27 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = '9f2c687aaef44d3eebfc8e58a13a99df'
 
 products = [
-    {'id': 1, 'name': 'LuxeComfort Cushion', 'description': 'Cozy, textured cushion with vibrant colors shown on a stylish sofa', 'price': 29.99, 'image_url': '/static/img/cushion.png'},
-    {'id': 2, 'name': 'UltraGrip Yoga Mat', 'description': 'Textured yoga mat with vivid color shown rolled out in a peaceful yoga studio', 'price': 49.99, 'image_url': '/static/img/yoga_mat.png'},
-    {'id': 3, 'name': 'Eco-Friendly Bottle', 'description': 'Reusable water with earthy bottle with a bamboo lid', 'price': 19.99, 'image_url': '/static/img/water_bottle.png'},
-    {'id': 4, 'name': 'Wireless Charging Pad', 'description': 'A modern white wireless charger in white shown sitting on a neat desk', 'price': 25.99, 'image_url': '/static/img/wireless_charger.png'},
-    {'id': 5, 'name': 'Noise-Canceling Earbuds', 'description': 'Compact earbuds with a futuristic design shown resting in their charging case', 'price': 34.99, 'image_url': '/static/img/earbuds.png'},
-    {'id': 6, 'name': 'Adjustable Laptop Stand', 'description': 'A modern, aluminum laptop stand shown holding an open laptop', 'price': 59.99, 'image_url': '/static/img/laptop_stand.png'},
-    {'id': 7, 'name': 'Multi-Function Blender', 'description': 'A powerful blender shown in a kitchen setting, blending a colorful smoothie', 'price': 39.99, 'image_url': '/static/img/blender.png'},
-    {'id': 8, 'name': 'Noise-Canceling Headset', 'description': 'A high-end over-ear headset shown on an office table', 'price': 49.99, 'image_url': '/static/img/headset.png'},
-    {'id': 9, 'name': 'Bluetooth Smartwatch', 'description': 'A sleek smartwatch shown on a table, with the screen showing fitness stats', 'price': 29.99, 'image_url': '/static/img/smartwatch.png'},
-    {'id': 10, 'name': 'HD Camera Drone', 'description': 'A sleek drone shown flying high over a scenic landscape with HD Camera in focus', 'price': 19.99, 'image_url': '/static/img/drone.png'},
-    {'id': 11, 'name': 'Adjustable Dumbbells', 'description': 'Adjustable dumbbells shown in a home gym setting', 'price': 59.99, 'image_url': '/static/img/adjustable_dumbbells.png'},
-    {'id': 12, 'name': 'Digital Picture Frame', 'description': 'A digital picture frame shown displaying an image in a cozy living room', 'price': 24.99, 'image_url': '/static/img/digital_picture_frame.png'},
-    {'id': 13, 'name': 'Air Purifier', 'description': 'A stylish air purifier shown on a living room table, blending into the modern decor', 'price': 44.99, 'image_url': '/static/img/air_purifier.png'},
-    {'id': 14, 'name': 'Smart Doorbell Camera', 'description': 'A compact, modern doorbell camera mounted beside a stylish front door', 'price': 54.99, 'image_url': '/static/img/doorbell.png'},
-    {'id': 15, 'name': 'Robot Vacuum Cleaner', 'description': 'A robot vacuum cleaner shown moving across a hardwood floor in a modern living room', 'price': 64.99, 'image_url': '/static/img/vacuum_cleaner.png'},
-    {'id': 16, 'name': 'Smart Thermostat', 'description': 'A modern smart thermostat shown mounted on a wall in a cozy home', 'price': 44.99, 'image_url': '/static/img/thermostat.png'},
-    {'id': 17, 'name': 'Gaming Console', 'description': 'A white gaming console shown on a gaming desk with a controller beside', 'price': 84.99, 'image_url': '/static/img/gaming_console.png'},
-    {'id': 18, 'name': 'Electric Kettle', 'description': 'A modern stainless steel electric kettle shown boiling water on a kitchen counter', 'price': 94.99, 'image_url': '/static/img/kettle.png'},
-    {'id': 19, 'name': 'Wireless Gaming Mouse', 'description': 'A high-performance wireless gaming mouse shown glowing with RGB lighting', 'price': 35.99, 'image_url': '/static/img/gaming_mouse.png'},
-    {'id': 20, 'name': 'Ergonomic Desk Chair', 'description': 'A modern ergonomic desk chair shown in a stylish office environment', 'price': 134.99, 'image_url': '/static/img/desk_chair.png'},
-    {'id': 21, 'name': 'Portable Bluetooth Speaker', 'description': 'A compact, waterproof Bluetooth speaker shown sitting by a poolside with water droplets', 'price': 44.99, 'image_url': '/static/img/speaker.png'},
+    {'id': 1, 'name': 'LuxeComfort Cushion', 'description': 'Cozy, textured cushion with vibrant colors', 'price': 29.99, 'image_url': '/static/img/cushion.png'},
+    {'id': 2, 'name': 'UltraGrip Yoga Mat', 'description': 'Textured yoga mat with vivid color on the floor', 'price': 49.99, 'image_url': '/static/img/yoga_mat.png'},
+    {'id': 3, 'name': 'Eco-Friendly Bottle', 'description': 'Reusable water with earthy bottle with bamboo lid', 'price': 19.99, 'image_url': '/static/img/water_bottle.png'},
+    {'id': 4, 'name': 'Wireless Charging Pad', 'description': 'A modern white wireless charger in white', 'price': 25.99, 'image_url': '/static/img/wireless_charger.png'},
+    {'id': 5, 'name': 'Noise-Canceling Earbuds', 'description': 'Compact earbuds with a futuristic design', 'price': 34.99, 'image_url': '/static/img/earbuds.png'},
+    {'id': 6, 'name': 'Adjustable Laptop Stand', 'description': 'A modern, aluminum laptop stand holding a laptop', 'price': 59.99, 'image_url': '/static/img/laptop_stand.png'},
+    {'id': 7, 'name': 'Multi-Function Blender', 'description': 'A powerful blender in a kitchen setting', 'price': 39.99, 'image_url': '/static/img/blender.png'},
+    {'id': 8, 'name': 'Noise-Canceling Headset', 'description': 'A high-end over-ear headset on a table', 'price': 49.99, 'image_url': '/static/img/headset.png'},
+    {'id': 9, 'name': 'Bluetooth Smartwatch', 'description': 'A sleek smartwatch with touch screen', 'price': 29.99, 'image_url': '/static/img/smartwatch.png'},
+    {'id': 10, 'name': 'HD Camera Drone', 'description': 'A sleek drone flying high over a scenic landscape', 'price': 19.99, 'image_url': '/static/img/drone.png'},
+    {'id': 11, 'name': 'Adjustable Dumbbells', 'description': 'Adjustable dumbbells in a home gym setting', 'price': 59.99, 'image_url': '/static/img/adjustable_dumbbells.png'},
+    {'id': 12, 'name': 'Digital Picture Frame', 'description': 'A digital picture frame displaying an image', 'price': 24.99, 'image_url': '/static/img/digital_picture_frame.png'},
+    {'id': 13, 'name': 'Air Purifier', 'description': 'A stylish air purifier on a living room table', 'price': 44.99, 'image_url': '/static/img/air_purifier.png'},
+    {'id': 14, 'name': 'Doorbell Camera', 'description': 'A compact, modern doorbell camera mounted', 'price': 54.99, 'image_url': '/static/img/doorbell.png'},
+    {'id': 15, 'name': 'Robot Vacuum Cleaner', 'description': 'A robot vacuum cleaner moving across a floor', 'price': 64.99, 'image_url': '/static/img/vacuum_cleaner.png'},
+    {'id': 16, 'name': 'Smart Thermostat', 'description': 'A modern smart thermostat mounted on a wall', 'price': 44.99, 'image_url': '/static/img/thermostat.png'},
+    {'id': 17, 'name': 'Gaming Console', 'description': 'A white gaming console on a gaming desk', 'price': 84.99, 'image_url': '/static/img/gaming_console.png'},
+    {'id': 18, 'name': 'Electric Kettle', 'description': 'A modern stainless electric kettle on counter', 'price': 94.99, 'image_url': '/static/img/kettle.png'},
+    {'id': 19, 'name': 'Gaming Mouse', 'description': 'A high-performance glowing wireless gaming mouse', 'price': 35.99, 'image_url': '/static/img/gaming_mouse.png'},
+    {'id': 20, 'name': 'Ergonomic Desk Chair', 'description': 'A modern ergonomic desk chair in a stylish office', 'price': 134.99, 'image_url': '/static/img/desk_chair.png'},
+    {'id': 21, 'name': 'Portable Bluetooth Speaker', 'description': 'A compact, waterproof Bluetooth speaker by a poolside', 'price': 44.99, 'image_url': '/static/img/speaker.png'},
 ]
 
 def initialize_cart():
@@ -176,7 +176,7 @@ def checkout():
     initialize_cart()
     session['cart'] = []
     session.modified = True
-    return render_template('checkout.html', message="Thank you for your purchase! Your cart has been cleared.")
+    return render_template('checkout.html', message="Your payment has been received! Your package will be shipped shortly and you will be notified.")
 
 @app.route('/contact', methods=['GET'])
 def contact():
