@@ -4,6 +4,7 @@
 
 {% block content %}
     <h1 class="centered-title">Search Results for "{{ query }}"</h1>
+    <div id="flash-message" style="display: none;"></div>
     {% if products %}
         <div class="product-list">
             {% for product in products %}
@@ -15,7 +16,7 @@
                 <p>{{ product.description }}</p>
                 <h2>Price: €{{ product.price }}</h2>
                 <a href="{{ url_for('view_product_details', product_id=product.id) }}" class="button">View Details</a>
-                <a href="{{ url_for('add_to_cart', product_id=product.id, next=request.url) }}" class="button">Add to Cart</a>
+                <a href="#" data-product-id="{{ product.id }}" class="button add-to-cart-button">Add to Cart</a>
             </div>
             {% endfor %}
         </div>

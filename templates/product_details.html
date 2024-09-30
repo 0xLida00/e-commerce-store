@@ -4,6 +4,7 @@
 
 {% block content %}
     <div class="center-container">
+        <div id="flash-message" style="display: none;"></div>
         <div class="product-details">
             <a href="#" class="product-image" data-image="{{ product.image_url }}">
                 <img src="{{ product.image_url }}" alt="{{ product.name }}">
@@ -11,7 +12,7 @@
             <h1>{{ product.name }}</h1>
             <p>{{ product.description }}</p>
             <h2>Price: €{{ product.price }}</h2>
-            <a href="{{ url_for('add_to_cart', product_id=product.id) }}" class="button">Add to Cart</a>
+            <a href="#" data-product-id="{{ product.id }}" class="button add-to-cart-button">Add to Cart</a>
         </div>
     </div>
     <div id="image-modal" class="image-modal">

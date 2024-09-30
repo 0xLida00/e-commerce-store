@@ -71,7 +71,16 @@ def cart_page():
     total = "{:.2f}".format(total)
     return render_template('cart.html', cart=session['cart'], total=total)
 
-@app.route('/add_to_cart/<int:product_id>')
+@app.route('/cart/data', methods=['GET'])
+def cart_data():
+    '''Returns the cart data as JSON.'''
+    initialize_cart()
+    cart_items = session['cart']
+    total = sum(item['price'] * item['quantity'] for item in cart_items)
+    total = "{:.2f}".format(total)
+    return jsonify(cart_items=cart_items, total=total)
+
+@app.route('/add_to_cart/<int:product_id>', methods=['POST'])
 def add_to_cart(product_id):
     '''Adds a product to the cart or increases its quantity if it's already in the cart.'''
     initialize_cart()
@@ -86,19 +95,15 @@ def add_to_cart(product_id):
                 # Increase quantity if product is already in the cart
                 item['quantity'] += 1
                 session.modified = True
-                flash('Product quantity increased.', 'success')
-                break
+                return jsonify({"success": True, "message": "Product quantity increased."})
         else:
             # Add product to cart if it's not already in the cart
             product['quantity'] = 1
             session['cart'].append(product)
             session.modified = True
-            flash('Product added to cart.', 'success')
+            return jsonify({"success": True, "message": "Product added to cart."})
 
-    next_page = request.args.get('next')
-    if next_page:
-        return redirect(next_page)
-    return redirect(url_for('index'))
+    return jsonify({"success": False, "message": "Product not found."})
 
 @app.route('/decrease_quantity/<int:product_id>')
 def decrease_quantity(product_id):
@@ -142,7 +147,6 @@ def process_payment():
 
     session['cart'] = []
     session.modified = True
-    
     return jsonify({"success": True, "message": "Payment processed successfully"})
 
 @app.route('/remove_from_cart/<int:product_id>')
@@ -151,8 +155,7 @@ def remove_from_cart(product_id):
     initialize_cart()
     session['cart'] = [item for item in session['cart'] if item['id'] != product_id]
     session.modified = True
-    next_page = request.args.get('next')
-    return redirect(next_page or url_for('cart_page'))
+    return jsonify({'message': 'Product removed from cart'})
 
 @app.route('/search')
 def search():

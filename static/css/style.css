@@ -41,7 +41,6 @@ body::before {
     align-items: center;
     width: 100%;
 }
-
 header {
     background-color: #526E69;
     color: #fff;
@@ -69,7 +68,6 @@ nav a {
     transition: color 0.3s, background-color 0.3s;
     background-color: transparent;
 }
-
 nav a:hover {
     color: #526E69;
     background-color: #fff;
@@ -99,7 +97,6 @@ footer {
     padding: 0 0 50px;
     overflow-y: auto;
 }
-
 .product-list {
     display: flex;
     justify-content: space-between;
@@ -107,7 +104,6 @@ footer {
     gap: 15px;
     padding-bottom: 10px;
 }
-
 .product-item {
     background-color: #f9f9f9;
     border: 1px solid #ddd;
@@ -117,17 +113,14 @@ footer {
     text-align: center;
     transition: transform 0.2s;
 }
-
 .product-item:hover {
     transform: scale(1.05);
 }
-
 .product-item img {
     max-width: 100%;
     height: auto;
     margin-bottom: 10px;
 }
-
 .product-details {
     display: flex;
     flex-direction: column;
@@ -136,19 +129,16 @@ footer {
     height: 75vh;
     padding-left: 250px;
 }
-
 .product-details img {
     display: block;
     margin: auto;
     max-width: 60%;
 }
-
 .product-details h2, .product-item h2 {
     font-size: 20px;
     color: #526E69;
     margin-bottom: 20px;
 }
-
 .product-details h1, .product-item h1 {
     font-size: 25px;
     color: #526E69;
@@ -167,12 +157,10 @@ footer {
     left: 50%;
     transform: translate(-50%, -50%);
 }
-
 .cart-items {
     display: flex;
     flex-direction: column;
 }
-
 .cart-item {
     display: flex;
     justify-content: space-between;
@@ -180,13 +168,11 @@ footer {
     border-bottom: 1px solid #ddd;
     padding: 20px 0;
 }
-
 .item-name {
     flex: 1;
     padding-right: 10px;
     font-size: 1.2em;
 }
-
 .item-price {
     flex: 1;
     text-align: center;
@@ -202,7 +188,6 @@ footer {
     font-weight: bold;
     cursor: pointer;
 }
-
 .remove-link:hover {
     color: #b30000;
     text-decoration: underline;
@@ -225,7 +210,6 @@ footer {
     font-size: 1.2em;
     transition: background-color 0.3s, color 0.3s;
 }
-
 .checkout-button:hover {
     background-color: #0056b3;
 }
@@ -243,7 +227,6 @@ footer {
     justify-content: center;
     align-items: center;
 }
-
 .modal-content {
     padding: 20px;
     border: 1px solid #888;
@@ -251,31 +234,26 @@ footer {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     animation: fadeIn 0.3s ease;
 }
-
 .modal-form-group {
     display: flex;
     align-items: center;
     margin-bottom: 15px;
     justify-content: flex-start;
 }
-
 .modal-form-group label {
     flex: 1;
     text-align: left;
 }
-
 .modal-form-group .modal-checkbox {
     flex: 0;
     margin-right: 10px;
 }
-
 .modal-form-group .modal-input {
     flex: 3;
     width: 80%;
     padding: 10px;
     box-sizing: border-box;
 }
-
 .modal-submit-button {
     background-color: #007BFF;
     width: 100%;
@@ -288,7 +266,6 @@ footer {
     margin-top: 10px;
     transition: background-color 0.3s;
 }
-
 .modal-submit-button:hover {
     background-color: #45a049;
 }
@@ -306,7 +283,6 @@ footer {
     justify-content: center;
     align-items: center;
 }
-
 #image-modal .img-modal-content {
     margin: auto;
     display: block;
@@ -314,17 +290,14 @@ footer {
     max-width: 700px;
     animation: zoomIn 0.6s;
 }
-
 @keyframes zoomIn {
     from { transform: scale(0); }
     to { transform: scale(1); }
 }
-
 #image-modal .img-modal-content {
     max-height: 90vh;
     object-fit: contain;
 }
-
 .modal-close {
     position: absolute;
     top: 200px;
@@ -342,46 +315,38 @@ footer {
     text-align: center;
     margin-bottom: 20px;
 }
-
 .about-section, .contact-form-section {
     margin-bottom: 30px;
 }
-
 .about-section h2, .contact-form-section h2 {
     font-size: 28px;
     color: #647F7C;
     margin-bottom: 15px;
 }
-
 .about-list li {
     font-size: 18px;
     margin-bottom: 10px;
 }
-
 .about-link, .contact-link {
     color: #526E69;
     font-weight: bold;
     text-decoration: none;
     transition: color 0.3s;
 }
-
 .about-link:hover, .contact-link:hover {
     color: #647F7C;
     text-decoration: underline;
 }
-
 .about-thanks {
     font-size: 20px;
     color: #526E69;
     text-align: center;
     margin-top: 40px;
 }
-
 .form-group, .contact-form {
     display: flex;
     flex-direction: column;
 }
-
 .form-input, .form-textarea {
     width: 90%;
     padding: 10px;
@@ -390,13 +355,11 @@ footer {
     font-size: 16px;
     margin-bottom: 10px;
 }
-
 .form-input:focus, .form-textarea:focus {
     border-color: #526E69;
     outline: none;
     box-shadow: 0 0 5px rgba(82, 110, 105, 0.5);
 }
-
 .submit-button {
     margin: auto;
     background-color: #526E69;
@@ -408,7 +371,6 @@ footer {
     transition: background-color 0.3s;
     cursor: pointer;
 }
-
 .submit-button:hover {
     background-color: #647F7C;
 }
@@ -423,7 +385,6 @@ footer {
     animation: fadeOut 2s ease-in-out 2s forwards;
     z-index: 1001;
 }
-
 .flash-message.success {
     background-color: #d4edda;
     color: #155724;
@@ -433,7 +394,24 @@ footer {
     font-size: 18px;
     animation: fadeIn 0.5s ease-in-out;
 }
-
+#flash-message {
+    position: fixed;
+    left: 50%;
+    max-width: 800px;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    animation: fadeOut 2s ease-in-out 2s forwards;
+    z-index: 1001;
+}
+#flash-message.success {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 15px;
+    border-radius: 5px;
+    border: 1px solid #c3e6cb;
+    font-size: 18px;
+    animation: fadeIn 0.5s ease-in-out;
+}
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -442,7 +420,6 @@ footer {
         opacity: 1;
     }
 }
-
 @keyframes fadeOut {
     to {
         opacity: 0;
@@ -462,7 +439,6 @@ footer {
     text-decoration: none;
     transition: background-color 0.3s;
 }
-
 .button:hover, .checkout-message .button:hover {
     background-color: #526E69;
 }
@@ -475,14 +451,12 @@ footer {
     margin-left: auto;
     margin-right: 25px;
 }
-
 .search-input {
     padding: 5px;
     border-radius: 5px;
     border: 1px solid #ddd;
     font-size: 14px;
 }
-
 .search-button {
     background-color: #526E69;
     color: white;
@@ -494,7 +468,6 @@ footer {
     border-radius: 5px;
     cursor: pointer;
 }
-
 .search-button:hover {
     background-color: #fff;
     color: #526E69;
@@ -516,13 +489,11 @@ footer {
     transform: translate(-50%, -50%);
     animation: fadeIn 0.5s ease-in-out;
 }
-
 .checkout-message h1 {
     font-size: 32px;
     color: #333;
     margin-bottom: 20px;
 }
-
 .checkout-message p {
     font-size: 18px;
     color: #555;
@@ -551,7 +522,6 @@ footer {
         justify-content: flex-start;
         margin-left: 5px;
     }
-
     nav a {
         margin: 0 8px;
         font-size: x-small;
@@ -575,28 +545,23 @@ footer {
         padding: 8px;
         width: 41%;
     }
-
     .product-item:hover {
         transform: scale(1.05);
     }
-
     .product-item img {
         max-width: 100%;
         height: auto;
         margin-bottom: 5px;
     }
-
     .product-details {
         padding-left: 0;
         text-align: center;
     }
-
     .product-details h2, .product-item h2 {
         font-size: 15px;
         color: #526E69;
         margin-bottom: 10px;
     }
-
     .product-details h1, .product-item h1 {
         font-size: 20px;
         color: #526E69;
@@ -610,7 +575,6 @@ footer {
         font-size: 0.6em;
         transition: background-color 0.3s;
     }
-
     .button:hover {
         background-color: #526E69;
     }
@@ -618,11 +582,9 @@ footer {
     .checkout-message-container {
         height: 40vh;
     }
-
     .checkout-message {
         max-width: 100%;
     }
-
     .modal-close {
         top: 160px;
         right: 25px;
@@ -636,13 +598,23 @@ footer {
         margin: 5px;
         padding: 5px;
     }
-
     .flash-message.success {
         padding: 5px;
         border-radius: 5px;
         font-size: 15px;
     }
-
+    #flash-message {
+        max-width: 600px;
+        width: 60%;
+        margin: 5px;
+        padding: 5px;
+    }
+    #flash-message.success {
+        padding: 5px;
+        border-radius: 5px;
+        font-size: 15px;
+    }
+    
     /* Cart Styles */
     .cart-container {
         width: 90%;
@@ -651,18 +623,15 @@ footer {
         max-height: 60vh;
         overflow-y: auto;
     }
-
     .cart-item {
         padding: 10px 0;
     }
-
     .item-name {
         flex: 1;
         text-align: left;
         padding-right: 5px;
         font-size: 0.8em;
     }
-
     .item-price {
         flex: 1;
         font-size: 0.9em;
@@ -672,12 +641,10 @@ footer {
         flex: 1;
         padding-left: 10px;
     }
-
     .cart-total {
         margin-top: 20px;
         font-size: 1em;
     }
-
     .checkout-button {
         display: block;
         padding: 5px;
@@ -690,25 +657,20 @@ footer {
         position: relative;
         padding: 15px;
     }
-
     .contact-container h2, .about-container h2 {
         font-size: 14px;
     }
-
     .contact-container p, .about-container p, .about-container li {
         font-size: 12px;
     }
-
     .form-input, .form-textarea {
         width: 90%;
         padding: 10px;
         font-size: 12px;
     }
-
     .form-group label {
         font-size: 14px;
     }
-
     .form-group .submit-button {
         font-size: 14px;
     }
@@ -717,7 +679,6 @@ footer {
     .modal-content {
         width: 300px;
     }
-    
     .modal-form-group .modal-input {
         flex: 3;
         width: 80%;
@@ -746,7 +707,6 @@ footer {
         flex-wrap: nowrap;
         margin-left: 20px;
     }
-
     nav a {
         margin: 0 5px;
         font-size: small;
@@ -758,12 +718,10 @@ footer {
         align-items: center;
         justify-content: flex-end;
         margin-left: auto;
-    }
-    
+    } 
     .search-input {
         font-size: 10px;
-    }
-    
+    } 
     .search-button {
         font-size: small;
     }
@@ -781,23 +739,19 @@ footer {
         padding: 8px;
         width: 29%;
     }
-
     .product-details {
         text-align: center;
         height: 70vh;
         padding-left: 0;
     }
-
     .product-details h2, .product-item h2 {
         font-size: 15px;
         margin-bottom: 15px;
     }
-
     .product-details h1, .product-item h1 {
         font-size: 20px;
         margin-bottom: 5px;
     }
-
     .modal-close {
         top: 150px;
         right: 50px;
@@ -806,11 +760,6 @@ footer {
     /* Buttons */
     .button {
         padding: 5px;
-    }
-
-    /* Flash Messages */
-    .flash-container {
-        margin: 5px 5px 5px -10px;
     }
 
     /* Cart Styles */
@@ -825,11 +774,9 @@ footer {
     .modal-content {
         width: 400px;
     }
-
     .checkout-message-container {
         height: 25vh;
     }
-
     .checkout-message {
         max-width: 100%;
     }
@@ -841,17 +788,15 @@ footer {
         position: relative;
         padding: 15px;
     }
-
     .centered-title {
         text-align: center;
     }
-
     .centered-title, .product-item {
         align-items: center;
     }
 }
 
-/* Medium Devices (Tablets, landscape iPads, etc.) */
+/* Medium and bigger Devices (landscape Tablets, landscape iPads, laptops, bigger screens) */
 @media (min-width: 1201px) {
     .logo img {
         margin: 15px 50px 0 10px;
@@ -867,18 +812,15 @@ footer {
         height: calc(70vh - 30px - 20px);
         overflow-y: auto;
     }
-
     #cart-preview li {
         font-size: 13px;
         margin-bottom: 8px;
     }
-
     #cart-preview a {
         color: red;
         text-decoration: none;
         margin-left: -3px;
     }
-
     #cart-preview .checkout-button {
         display: block;
         width: 80%;
@@ -897,38 +839,36 @@ footer {
         padding: 8px;
         width: 29%;
     }
-
     .center-container {
         display: flex;
         justify-content: center;
         align-items: center;
         height: 80vh;
     }
-
     .product-details h2, .product-item h2 {
         font-size: 15px;
         margin-bottom: 15px;
     }
-
     .product-details h1, .product-item h1 {
         font-size: 20px;
         margin-bottom: 5px;
     }
-
     .modal-close {
         top: 90px;
         right: 200px;
         font-size: 18px;
     }
+    #flash-message {
+        position: fixed;
+        top: 90px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1001;
+    }
 
     /* Buttons */
     .button {
         padding: 5px;
-    }
-
-    /* Flash Messages */
-    .flash-container {
-        margin: 5px 5px 5px -10px;
     }
 
     /* Cart Styles */
@@ -943,11 +883,9 @@ footer {
     .modal-content {
         width: 400px;
     }
-
     .checkout-message-container {
         height: 25vh;
     }
-
     .checkout-message {
         max-width: 100%;
     }
@@ -958,15 +896,12 @@ footer {
         margin: 10px;
         padding: 15px;
     }
-
     .about-container {
         position: relative;
     }
-
     .centered-title {
         text-align: center;
     }
-
     .centered-title, .product-item {
         align-items: center;
     }
